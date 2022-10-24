@@ -1,12 +1,13 @@
 
 
 function Header({money,total}){
-    
+    let leftSpend = money - total
+
     return (
         <div>
        <strong className="totalMoney">{
         <>
-            {money - total} left to spend
+            {leftSpend} left to spend
         </>
         ||
         <>

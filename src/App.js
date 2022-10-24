@@ -22,7 +22,7 @@ function App() {
    <div>
     <Header total={total} money={money} />
     {products.map(product => (
-        <Product key={product.id} basket={basket} setBasket={setBasket} product={product} />
+        <Product total={total} money={money} key={product.id} basket={basket} setBasket={setBasket} product={product} />
     ))}
    </div>
   );

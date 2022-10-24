@@ -1,8 +1,10 @@
 
-function Product({product, basket, setBasket}){
-
+function Product({product, total, money, basket, setBasket}){
+    console.log('product' + product.price)
+    console.log('total' + total)
+    console.log('money' + money)
     const basketItem = basket.find(item => item.id === product.id)
-
+    
     const addBasket = () => {
         let checkBasket = basket.find(item => item.id === product.id)
         let basketWithoutCurrent = basket.filter(item => item.id !== product.id)
@@ -33,7 +35,7 @@ function Product({product, basket, setBasket}){
             <h3>$ {product.price}</h3>
             <div className="action">
                 <button disabled={!basketItem} onClick={removeBasket}>Sell</button>
-                <button onClick={addBasket}>Buy</button>
+                <button disabled={product.price > money-total} onClick={addBasket}>Buy</button>
                 <span className="amount">{basketItem && basketItem.amount || 0 }</span>
             </div>
             <style jsx>
