@@ -1,10 +1,25 @@
 
 
-function Header({money}){
+function Header({money,total}){
     
     return (
         <div>
-        Your Cash = {money} $
+       <strong className="totalMoney">{
+        <>
+            {money - total} left to spend
+        </>
+        ||
+        <>
+            Your Cash = {money} $
+        </>
+        }</strong>
+         <style jsx>
+                {`
+                .totalMoney{
+                    margin: 20px;
+                }
+                `}
+            </style>
         </div>
     );
 }

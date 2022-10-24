@@ -8,14 +8,19 @@ import Header from './components/Header';
 function App() {
   const [money, setMoney] = useState(100)
   const [basket,setBasket] = useState([])
+  const [total, setTotal] = useState(0)
 
   useEffect(() => {
-    console.log(basket)
+    setTotal(
+      basket.reduce((acc, item) => {
+    let findProduct = products.find(product => product.id === item.id)
+      return acc + (item.amount * findProduct.price)
+    },0))
   },[basket])
 
   return (
    <div>
-    <Header money={money} />
+    <Header total={total} money={money} />
     {products.map(product => (
         <Product key={product.id} basket={basket} setBasket={setBasket} product={product} />
     ))}
