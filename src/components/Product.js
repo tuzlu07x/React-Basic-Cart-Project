@@ -1,8 +1,6 @@
 
 function Product({product, total, money, basket, setBasket}){
-    console.log('product' + product.price)
-    console.log('total' + total)
-    console.log('money' + money)
+
     const basketItem = basket.find(item => item.id === product.id)
     
     const addBasket = () => {
